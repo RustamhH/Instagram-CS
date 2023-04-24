@@ -1,0 +1,15 @@
+D:\c#\Instagram\Instagram\bin\Debug\net6.0\Instagram.exe
+D:\c#\Instagram\Instagram\bin\Debug\net6.0\Instagram.deps.json
+D:\c#\Instagram\Instagram\bin\Debug\net6.0\Instagram.runtimeconfig.json
+D:\c#\Instagram\Instagram\bin\Debug\net6.0\Instagram.dll
+D:\c#\Instagram\Instagram\bin\Debug\net6.0\Instagram.pdb
+D:\c#\Instagram\Instagram\obj\Debug\net6.0\Instagram.csproj.AssemblyReference.cache
+D:\c#\Instagram\Instagram\obj\Debug\net6.0\Instagram.GeneratedMSBuildEditorConfig.editorconfig
+D:\c#\Instagram\Instagram\obj\Debug\net6.0\Instagram.AssemblyInfoInputs.cache
+D:\c#\Instagram\Instagram\obj\Debug\net6.0\Instagram.AssemblyInfo.cs
+D:\c#\Instagram\Instagram\obj\Debug\net6.0\Instagram.csproj.CoreCompileInputs.cache
+D:\c#\Instagram\Instagram\obj\Debug\net6.0\Instagram.dll
+D:\c#\Instagram\Instagram\obj\Debug\net6.0\refint\Instagram.dll
+D:\c#\Instagram\Instagram\obj\Debug\net6.0\Instagram.pdb
+D:\c#\Instagram\Instagram\obj\Debug\net6.0\Instagram.genruntimeconfig.cache
+D:\c#\Instagram\Instagram\obj\Debug\net6.0\ref\Instagram.dll
