@@ -53,12 +53,12 @@ namespace Instagram
             }
         }
 
-        // (https://myaccount.google.com/lesssecureapps)
+        // Admin-in emailinden userlere mesaj gede bilmesi ucun "App password" elde etmeli ve onu register olarken email passwordu kimi qeyd etmelisiniz
+        // (eger ozunuz admin yaradib yoxlamaq isteyirsinizse)
 
-        // eger mailinizde 2-Step Verification varsa ,  (https://myaccount.google.com/apppasswords)
-        // burdan size verilen 16 simvollu parolu qeydiyatdan kecende password kimi qeyd edirsiz.
-        // https://myaccount.google.com/apppasswords?rapt=AEjHL4OZhaix4ijnxcmiP3zDGWYH5E8DZbz_be6gU8LMAwEaplrK_xZEO96w9SWJghJLdaVE_c64HgHOcBYEBBP-ZVfyQ9T1TA
+        // Her ehtimala qarsi menim yaratdigim adminlerle islemeyiniz yaxsi olar.
 
+        // https://myaccount.google.com/apppasswords
 
         static void Main(string[] args)
         {
