@@ -62,9 +62,18 @@ namespace Instagram
 
         static void Main(string[] args)
         {
-            Admin admin = new Admin("RustamH", "rustamh2006@gmail.com", "plznmscfulyymljp");
-            Database.Admins.Add(admin);
-            Database.Users.Add(new User("Afgan", "Kolesi", 23, "jiair.mylo@findours.com", "ewkha6E&"));
+
+            try
+            {
+
+                Admin admin = new Admin("RustamH", "rustamh2006@gmail.com", "plznmscfulyymljp");
+                Database.Admins.Add(admin);
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return;
+            }
             User currentUser = new();
             Admin currentAdmin = new();
             

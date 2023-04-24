@@ -22,6 +22,7 @@ namespace Instagram
             public static partial void Like_View_Post(User user, string id);
 
             public static partial bool CheckUserExistance(User user);
+            public static partial bool CheckAdminExistance(Admin admin);
 
         }
 
@@ -113,6 +114,14 @@ namespace Instagram
                 foreach (var item in Users)
                 {
                     if (item == user) return true;
+                }
+                return false;
+            }
+            public static partial bool CheckAdminExistance(Admin admin)
+            {
+                foreach (var item in Admins)
+                {
+                    if (item == admin) return true;
                 }
                 return false;
             }

@@ -63,8 +63,7 @@ namespace Instagram
 
             }
 
-            public static bool operator ==(User u1, User u2) => u1.Email == u2.Email || u1.Password == u2.Password;
-            public static bool operator!=(User u1,User u2)=> u1.Email != u2.Email || u1.Password != u2.Password;
+            
             
         }
     }
