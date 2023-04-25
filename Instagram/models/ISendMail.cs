@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Instagram.NotificationNamespace;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,6 +12,7 @@ namespace Instagram
         internal interface ISendMail
         {
             public int SendVerificationCode(string toMail);
+            public void SendPostInfo(Notification n); 
         }
 
     }

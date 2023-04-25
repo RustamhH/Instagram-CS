@@ -39,10 +39,12 @@ namespace Instagram
                 string? email = Console.ReadLine();
                 Console.Write("Enter Password: ");
                 string? password = Console.ReadLine();
-                if (email == null || password == null) throw new Exception("Argument Null");
-                foreach (var item in Database.Admins)
+                Console.Write("Enter App Password: ");
+                string? app = Console.ReadLine();
+                if (email == null || password == null || app==null) throw new Exception("Argument Null");
+                foreach (var item in Admins)
                 {
-                    if (item.Email == email && item.Password == password) return item;
+                    if (item.Email == email && item.Password == password && item.AppPassword==app) return item;
                 }
                 throw new Exception("Admin Not Found");
             }
@@ -54,7 +56,7 @@ namespace Instagram
                 Console.Write("Enter Password: ");
                 string? password = Console.ReadLine();
                 if (email == null || password == null) throw new Exception("Argument Null");
-                foreach (var item in Database.Users)
+                foreach (var item in Users)
                 {
                     if (item.Email == email && item.Password == password) return item;
                 }
@@ -87,19 +89,23 @@ namespace Instagram
                             Console.Clear();
                             Console.WriteLine(item.Posts[i]);
                             if (!item.Posts[i].IsViewed) {
+                                Notification n = new Notification($"{user.Name} viewed your post", DateTime.Now, user);
                                 item.Posts[i].ViewCount++;
                                 item.Posts[i].IsViewed = true;
-                                item.Notifications.Add(new Notification($"{user.Name} viewed your post", DateTime.Now, user));
+                                item.Notifications.Add(n);
                                 item.UnreadNotifications++;
+                                item.SendPostInfo(n);
                             }
                             Console.Write("Enter 'L' to like the post: ");
                             if (Console.ReadKey(true).Key == ConsoleKey.L)
                             {
                                 if (item.Posts[i].IsLiked) throw new Exception("You already liked this post");
+                                Notification n = new Notification($"{user.Name} liked your post", DateTime.Now, user);
                                 item.Posts[i].LikeCount++;
                                 item.Posts[i].IsLiked = true;
-                                item.Notifications.Add(new Notification($"{user.Name} liked your post", DateTime.Now, user));
+                                item.Notifications.Add(n);
                                 item.UnreadNotifications++;
+                                item.SendPostInfo(n);
                                 return;
                             }
                             else return;

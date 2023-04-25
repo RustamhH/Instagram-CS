@@ -21,6 +21,11 @@ namespace Instagram
         internal sealed partial class Admin : Person, ISendMail
         {
             private string _username;
+
+            private string _apppassword;
+
+
+
             public List<Post> Posts { get; set; }
             public List<Notification> Notifications { get; set; }
 
@@ -34,16 +39,26 @@ namespace Instagram
                     _username = value;
                 }
             }
+            public string AppPassword
+            {
+                get => _apppassword;
+                set 
+                {
+                    if (value.Length != 16 || !value.All(Char.IsLetter)) throw new Exception("Invalid App Password");
+                    _apppassword = value;
+                }
+            }
             public Admin() : base()
             {
                 Posts = new List<Post>();
                 Notifications = new List<Notification>();
             }
-            public Admin(string username, string email, string password) : base(email, password)
+            public Admin(string username, string email, string password,string app) : base(email, password)
             {
                 Posts = new List<Post>();
                 Notifications = new List<Notification>();
                 Username = username;
+                AppPassword = app;
             }
 
             public partial void PrintNotifications();
@@ -51,6 +66,8 @@ namespace Instagram
             public partial void ShowAllPostsShort();
             public partial void ShowAllPostsFull();
             public partial int SendVerificationCode(string toMail);
+
+            public partial void SendPostInfo(Notification n);
 
         }
 
@@ -118,12 +135,33 @@ namespace Instagram
                 var smtpClient = new SmtpClient("smtp.gmail.com")
                 {
                     Port = 587,
-                    Credentials = new NetworkCredential(Email, Password),
+                    Credentials = new NetworkCredential(Email, AppPassword),
                     EnableSsl = true,
                 };
                 smtpClient.Send(message);
                 return randint;
             }
+            
+            public partial void SendPostInfo(Notification n)
+            {
+                MailMessage message = new MailMessage();
+                message.From = new MailAddress(Email);
+                message.To.Add(new MailAddress(Email));
+                message.Subject = "New Notification";
+                message.Body = $"<html><body> {n} </body></html>";
+                message.IsBodyHtml = true;
+                var smtpClient = new SmtpClient("smtp.gmail.com")
+                {
+                    Port = 587,
+                    Credentials = new NetworkCredential(Email, AppPassword),
+                    EnableSsl = true,
+                };
+                smtpClient.Send(message);
+            }
+
+
+
+
         } 
     }
     

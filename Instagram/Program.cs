@@ -58,16 +58,18 @@ namespace Instagram
 
         // Her ehtimala qarsi menim yaratdigim adminlerle islemeyiniz yaxsi olar.
 
+        // Emaillerin gonderilmesi run-time in yavas getmesine sebeb ola biler , kodda problem yoxdur
+
+        // https://www.fakemail.net/
+
         // https://myaccount.google.com/apppasswords
 
         static void Main(string[] args)
         {
 
-            
-            Admin admin = new Admin("RustamH", "rustamh2006@gmail.com", "plznmscfulyymljp");
-            if(!Database.CheckAdminExistance(admin)) Database.Admins.Add(admin);
-          
-            
+                
+            Admin admin2 = new Admin("Admin", "mya8min@gmail.com", "adminadmin123", "brcldnhkuwhcdqrr");
+            if(!Database.CheckAdminExistance(admin2)) Database.Admins.Add(admin2);
 
             User currentUser = new();
             Admin currentAdmin = new();
