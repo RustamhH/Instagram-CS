@@ -13,10 +13,10 @@ namespace Instagram
         {
             public bool IsViewed { get; set; }
 
-            public string Id { get; init; }
+            public readonly string Id;
             public string Text { get; set; }
 
-            public DateTime TimeReceived { get; init; }
+            public readonly DateTime TimeReceived;
 
             public User FromUser { get; set; }
 
